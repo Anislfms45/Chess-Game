@@ -11,3 +11,5 @@
 <b>C ---> Knight </b></br>
 <b>P ---> Pawn </b></br>
 <b>F ---> Bishop </b>
+
+![](GamePlay.PNG)

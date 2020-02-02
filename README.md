@@ -1,5 +1,5 @@
 # Chess-Game
-Console Chess Game for two players made with C# 
+<h3>Console Chess Game for two players made with C# </h3>
 
 ![](Capture.PNG)
 

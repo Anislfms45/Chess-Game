@@ -1,0 +1,14 @@
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\bin\Debug\ConsoleApp104.exe.config
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\bin\Debug\ConsoleApp104.exe
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\bin\Debug\ConsoleApp104.pdb
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\obj\Debug\ConsoleApp104.csprojAssemblyReference.cache
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\obj\Debug\ConsoleApp104.csproj.CoreCompileInputs.cache
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\obj\Debug\ConsoleApp104.exe
+C:\Users\test\source\repos\ConsoleApp104\ConsoleApp104\obj\Debug\ConsoleApp104.pdb
+C:\Users\test\Desktop\ChssGame Project\bin\Debug\ConsoleApp104.exe.config
+C:\Users\test\Desktop\ChssGame Project\bin\Debug\ConsoleApp104.exe
+C:\Users\test\Desktop\ChssGame Project\bin\Debug\ConsoleApp104.pdb
+C:\Users\test\Desktop\ChssGame Project\obj\Debug\ConsoleApp104.csprojAssemblyReference.cache
+C:\Users\test\Desktop\ChssGame Project\obj\Debug\ConsoleApp104.csproj.CoreCompileInputs.cache
+C:\Users\test\Desktop\ChssGame Project\obj\Debug\ConsoleApp104.exe
+C:\Users\test\Desktop\ChssGame Project\obj\Debug\ConsoleApp104.pdb

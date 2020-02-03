@@ -170,7 +170,7 @@ namespace ConsoleApp104
 
             if (echec_check(Reverse_color, conversion[2], conversion[3]))
             {
-                Console.WriteLine("White Player Won");
+                Console.WriteLine("{0} Player Won" , color);
                 Console.ReadKey();
                 endgame++;
             }
@@ -233,6 +233,9 @@ namespace ConsoleApp104
                             if (chess[x_King, y_King].Move_Permited_check(Next_Clone_King_Move) && !chess[x, y].Move_Permited_check(new int[] {x, y, x_King + move, y_King + Sec_move }))
                             {
                                 return false;
+                                Console.WriteLine("cant move");
+                                Console.ReadKey();
+
                             }
                         }
                     }
@@ -247,6 +250,9 @@ namespace ConsoleApp104
                             if(chess[i,j].Move_Permited_check(new int[] {i , j , x , y }))
                             {
                                 return false;
+                                Console.WriteLine("nop nop");
+                                Console.ReadKey();
+
                             }
                         }
                     }
@@ -255,8 +261,20 @@ namespace ConsoleApp104
                 if (!(chess[x,y] is chvalier))
                 {
                     Dictionary<int, int> Moves_to_get_to_king = new Dictionary<int, int>();
-                    int proces_x = Math.Abs(x_King - x);
-                    int proces_y = Math.Abs(y_King - y);
+                    int proces_x =x_King - x;
+                    int proces_y =y_King - y;
+                    int Pos_x = proces_x < 0 ? -1 : (proces_x == 0 ? 0 : 1) ;
+                    int Pos_y = proces_y < 0 ? -1 : (proces_y == 0 ? 0 : 1);
+
+                    int i = 1;
+                   //cords of offnder positions to get to king 
+                    if (Math.Abs(proces_x) ==Math.Abs(proces_y)) {
+                        while (i < (proces_x > proces_y ? proces_x : proces_y))
+                        {
+                            Console.WriteLine(((Pos_x * i) + x) + " " + ((Pos_y * i) + y));
+                        i++;
+                        }
+                    }
                     
                 }
 

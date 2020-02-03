@@ -233,58 +233,57 @@ namespace ConsoleApp104
                             if (chess[x_King, y_King].Move_Permited_check(Next_Clone_King_Move) && !chess[x, y].Move_Permited_check(new int[] {x, y, x_King + move, y_King + Sec_move }))
                             {
                                 return false;
-                                Console.WriteLine("cant move");
-                                Console.ReadKey();
-
                             }
                         }
                     }
                 }
                 //checking piece cannot be captured.
-                for (int i = 0; i < 8; i++)
+                if (check_if_move_allowed_to_stop_check(color, x, y) == false)
                 {
-                    for (int j = 0; j < 8; j++)
-                    {
-                        if (chess[i, j].color.Equals(color))
-                        {
-                            if(chess[i,j].Move_Permited_check(new int[] {i , j , x , y }))
-                            {
-                                return false;
-                                Console.WriteLine("nop nop");
-                                Console.ReadKey();
-
-                            }
-                        }
-                    }
-                }
+                    return false;
+                } 
                 //cannot be protected by another piece
                 if (!(chess[x,y] is chvalier))
                 {
-                    Dictionary<int, int> Moves_to_get_to_king = new Dictionary<int, int>();
                     int proces_x =x_King - x;
                     int proces_y =y_King - y;
                     int Pos_x = proces_x < 0 ? -1 : (proces_x == 0 ? 0 : 1) ;
                     int Pos_y = proces_y < 0 ? -1 : (proces_y == 0 ? 0 : 1);
-
                     int i = 1;
                    //cords of offnder positions to get to king 
-                    if (Math.Abs(proces_x) ==Math.Abs(proces_y)) {
                         while (i < (proces_x > proces_y ? proces_x : proces_y))
                         {
-                            Console.WriteLine(((Pos_x * i) + x) + " " + ((Pos_y * i) + y));
-                        i++;
+                            if (check_if_move_allowed_to_stop_check(color, ((Pos_x * i) + x), ((Pos_y * i) + y)) == false)
+                            {
+                            return false;
+                            }
+                            i++;
                         }
-                    }
-                    
                 }
-
                 return true;
-
             }
             else
             {
                 return false;
             }
         }
+        private bool check_if_move_allowed_to_stop_check(string color , int x , int y)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (chess[i, j].color.Equals(color))
+                    {
+                        if (chess[i, j].Move_Permited_check(new int[] { i, j, x, y }))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
     }
+    
 }

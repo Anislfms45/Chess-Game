@@ -249,6 +249,8 @@ namespace ConsoleApp104
                     int proces_y =y_King - y;
                     int Pos_x = proces_x < 0 ? -1 : (proces_x == 0 ? 0 : 1) ;
                     int Pos_y = proces_y < 0 ? -1 : (proces_y == 0 ? 0 : 1);
+                    proces_x = Math.Abs(proces_x);
+                    proces_y = Math.Abs(proces_y);
                     int i = 1;
                    //cords of offnder positions to get to king 
                         while (i < (proces_x > proces_y ? proces_x : proces_y))

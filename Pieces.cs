@@ -61,73 +61,36 @@ namespace ConsoleApp104
         public override bool Move_Permited_check(int[] conversion)
         {
             string swtcolor = color.Equals("White") ? "black" : "White";
-            int k = 0;
             if (!(ChessBord.chess[conversion[2], conversion[3]].color.Equals(this.color)))
             {
-                ////////////////////////////////////////////// Diagonale Invers CHECKED PERFECT///////////////////////////////////////////////////////////////////////////////////////
-                for (int i = 0; i < 8; i++)
-                {
-                    if ((conversion[2] == conversion[0] - i && conversion[3] == conversion[1] + i) || (conversion[2] == conversion[0] + i && conversion[3] == conversion[1] - i))
+                int proces_x =conversion[2] - conversion[0];
+                int proces_y = conversion[3] - conversion[1];
+                int Pos_x = proces_x < 0 ? -1 : (proces_x == 0 ? 0 : 1);
+                int Pos_y = proces_y < 0 ? -1 : (proces_y == 0 ? 0 : 1);
+                proces_x = Math.Abs(proces_x);
+                proces_y = Math.Abs(proces_y);
+                int i = 1;
+                if(proces_x == proces_y) {
+                    while (i < (proces_x > proces_y ? proces_x : proces_y))
                     {
-                        k = 1;
-                        if (conversion[0] > conversion[2])
+                        string color = ChessBord.chess[((Pos_x * i) + conversion[0]), ((Pos_y * i) + conversion[1])].color;
+                        if (color.Equals("White") || color.Equals("black"))
                         {
-                            for (int j = 1; j < i; j++)
-                            {
-                                if (ChessBord.chess[conversion[0] - j, conversion[1] + j].color.Equals(this.color) || ChessBord.chess[conversion[0] - j, conversion[1] + j].color.Equals(swtcolor))
-                                {
-                                    return false;
-                                }
-                            }
+                            return false;
                         }
-                        if (conversion[0] < conversion[2])
-                        {
-                            for (int j = 1; j < i; j++)
-                            {
-                                if (ChessBord.chess[conversion[0] + j, conversion[1] - j].color.Equals(this.color) || ChessBord.chess[conversion[0] + j, conversion[1] - j].color.Equals(swtcolor))
-                                {
-                                    return false;
-                                }
-                            }
-                        }
+                        i++;
                     }
+                    return true;
                 }
-                for (int i = 0; i < 8; i++)
+                else
                 {
-                    ////////////////////////////////////////////// Diagonale CHECKED PERFECT///////////////////////////////////////////////////////////////////////////////////////
-                    if ((conversion[2] == conversion[0] - i && conversion[3] == conversion[1] - i) || (conversion[2] == conversion[0] + i && conversion[3] == conversion[1] + i))
-                    {
-                        k = 1;
-                        if (conversion[0] > conversion[2])
-                        {
-                            for (int j = 1; j < i; j++)
-                            {
-                                if (ChessBord.chess[conversion[0] - j, conversion[1] - j].color.Equals(this.color) ||ChessBord.chess[conversion[0] - j, conversion[1] - j].color.Equals(swtcolor))
-                                {
-                                    return false;
-                                }
-                            }
-                        }
-                        if (conversion[0] < conversion[2])
-                        {
-                            for (int j = 1; j < i; j++)
-                            {
-                                if (ChessBord.chess[conversion[0] + j, conversion[1] + j].color.Equals(this.color) || ChessBord.chess[conversion[0] + j, conversion[1] + j].color.Equals(swtcolor))
-                                {
-                                    return false;
-                                }
-                            }
-                        }
-                    }
+                    return false;
                 }
             }
             else
             {
-                return false;
+               return false;
             }
-            if (k == 1)
-                return true;
-            return false;
         }
     }
     class tour : Pieces
@@ -143,58 +106,35 @@ namespace ConsoleApp104
             string swtcolor = color.Equals("White") ? "black" : "White";
             if (!(ChessBord.chess[conversion[2], conversion[3]].color.Equals(this.color)))
             {
-                /////////////////////////// HORIZENTAL MOVE PERFECT CHECKED//////////////////////////////////////////////////////////////
-                if (conversion[0] == conversion[2] && Math.Abs(conversion[1] - conversion[3]) != 0 || conversion[3] == conversion[1] && Math.Abs(conversion[0] - conversion[2]) != 0)
+                int proces_x = conversion[2] - conversion[0];
+                int proces_y = conversion[3] - conversion[1];
+                int Pos_x = proces_x < 0 ? -1 : (proces_x == 0 ? 0 : 1);
+                int Pos_y = proces_y < 0 ? -1 : (proces_y == 0 ? 0 : 1);
+                proces_x = Math.Abs(proces_x);
+                proces_y = Math.Abs(proces_y);
+                int i = 1;
+                if (proces_x != proces_y && (proces_x == 0 || proces_y == 0))
                 {
-                    if (conversion[3] < conversion[1])
+                    while (i < (proces_x > proces_y ? proces_x : proces_y))
                     {
-                        for (int j = conversion[3] + 1; j < conversion[1]; j++)
+                        string color = ChessBord.chess[((Pos_x * i) + conversion[0]), ((Pos_y * i) + conversion[1])].color;
+                        if (color.Equals("White") || color.Equals("black"))
                         {
-                            if ((ChessBord.chess[conversion[2], j].color.Equals(this.color)) || (ChessBord.chess[conversion[2], j].color.Equals(swtcolor)))
-                            {
-                                return false;
-                            }
+                            return false;
                         }
+                        i++;
                     }
-                    else
-                    {
-                        for (int j = conversion[1] + 1; j < conversion[3]; j++)
-                        {
-                            if (ChessBord.chess[conversion[2], j].color.Equals(this.color) || (ChessBord.chess[conversion[2], j].color.Equals(swtcolor)))
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                    //////////// VERTICAL MOVE PERFECT CHECKED/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    if (conversion[2] < conversion[0])
-                    {
-                        for (int j = conversion[2] + 1; j < conversion[0]; j++)
-                        {
-                            if (ChessBord.chess[j, conversion[3]].color.Equals(this.color) || ChessBord.chess[j, conversion[3]].color.Equals(swtcolor))
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        for (int j = conversion[0] + 1; j < conversion[2]; j++)
-                        {
-                            if (ChessBord.chess[j, conversion[3]].color.Equals(this.color) || ChessBord.chess[j, conversion[3]].color.Equals(swtcolor))
-                            {
-                                return false;
-                            }
-                        }
-                    }
+                    return true;
                 }
-                else { return false; }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
             }
-            return true;
         }
     }
     class Queen : Pieces

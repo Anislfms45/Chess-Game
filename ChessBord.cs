@@ -32,11 +32,31 @@ namespace ConsoleApp104
                     chess[i, j] = new vide("uno");
                 }
             }
-            
+              for (int j = 0; j < 8; j++)
+            {
+                chess[6, j] = new Pion("White");
+                chess[1, j] = new Pion("black");
+            }
+            chess[7, 4] = new King("White");
+            chess[0, 4] = new King("black");
 
-            chess[7, 2] = new tour("White");
+            chess[0, 3] = new Queen("black");
 
-            chess[3, 0] = new tour("black");
+            chess[7, 3] = new Queen("White");
+
+            chess[0, 7] = new tour("black");
+            chess[7, 0] = new tour("White");
+
+            chess[7, 7] = new tour("White");
+            chess[0, 0] = new tour("black");
+            chess[0, 1] = new chvalier("black");
+            chess[0, 6] = new chvalier("black");
+            chess[7, 1] = new chvalier("White");
+            chess[7, 6] = new chvalier("White");
+            chess[7, 2] = new fou("White");
+            chess[7, 5] = new fou("White");
+            chess[0, 2] = new fou("black");
+            chess[0, 5] = new fou("black");
         }
         // FUNCTION SHOW AFFICHE LA MATRICE DANS LE COMMANDE "please dont resize the commande size becous of the color"
         public void show()

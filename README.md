@@ -3,7 +3,7 @@
 
 ![](Capture.PNG)
 
-<b>W ---> white</b> </br>
+<b>W ---> White</b> </br>
 <b>B ---> Black </b></br>
 <b>Q ---> Queen </b></br>
 <b>K ---> King </b></br>
